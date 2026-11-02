@@ -1,0 +1,145 @@
+{
+  "label": "loss10-aws",
+  "host": "http://file-transfer-gateway-34279764.us-west-2.elb.amazonaws.com",
+  "send_loss": 10,
+  "when": "2026-11-01T19:04:15Z",
+  "rows": [
+    {
+      "file": "f4kib.bin",
+      "bytes": 4096,
+      "chunks": 64,
+      "send_loss": 10,
+      "reps": 8,
+      "successes": 8,
+      "success_rate": 1.0,
+      "statuses": {
+        "200": 8
+      },
+      "median_millis": 4397.024354431778,
+      "p95_millis": 6351.196582894772,
+      "min_millis": 4250.755583867431,
+      "max_millis": 6351.196582894772,
+      "mb_per_sec": 0.0008883848905823947,
+      "runs": [
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 4096,
+          "millis": 4343.700957950205
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 4096,
+          "millis": 6351.196582894772
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 4096,
+          "millis": 4414.5840420387685
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 4096,
+          "millis": 4250.755583867431
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 4096,
+          "millis": 6248.069500084966
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 4096,
+          "millis": 4379.464666824788
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 4096,
+          "millis": 6280.3422920405865
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 4096,
+          "millis": 4343.267125077546
+        }
+      ]
+    },
+    {
+      "file": "f64kib.bin",
+      "bytes": 65536,
+      "chunks": 1024,
+      "send_loss": 10,
+      "reps": 8,
+      "successes": 6,
+      "success_rate": 0.75,
+      "statuses": {
+        "200": 6,
+        "504": 2
+      },
+      "median_millis": 11209.888208657503,
+      "p95_millis": 13332.370582967997,
+      "min_millis": 10975.586417131126,
+      "max_millis": 13332.370582967997,
+      "mb_per_sec": 0.005575434726613122,
+      "runs": [
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 65536,
+          "millis": 13332.370582967997
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 65536,
+          "millis": 13199.058332946151
+        },
+        {
+          "ok": false,
+          "status": 504,
+          "bytes": 0,
+          "millis": 13372.002666816115,
+          "error": "{\"error\":\"the file server did not respond\"}"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 65536,
+          "millis": 10975.586417131126
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 65536,
+          "millis": 11184.095959179103
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 65536,
+          "millis": 11235.680458135903
+        },
+        {
+          "ok": false,
+          "status": 504,
+          "bytes": 0,
+          "millis": 13335.373042151332,
+          "error": "{\"error\":\"the file server did not respond\"}"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 65536,
+          "millis": 10997.633625287563
+        }
+      ]
+    }
+  ]
+}

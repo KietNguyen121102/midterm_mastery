@@ -1,0 +1,235 @@
+{
+  "label": "size-local",
+  "host": "http://127.0.0.1:8082",
+  "send_loss": 0,
+  "when": "2026-11-01T18:19:13Z",
+  "rows": [
+    {
+      "file": "f4kib.bin",
+      "bytes": 4096,
+      "chunks": 64,
+      "send_loss": 0,
+      "reps": 5,
+      "successes": 5,
+      "success_rate": 1.0,
+      "statuses": {
+        "200": 5
+      },
+      "median_millis": 2003.834083210677,
+      "p95_millis": 2010.539208073169,
+      "min_millis": 2003.2340832985938,
+      "max_millis": 2010.539208073169,
+      "mb_per_sec": 0.0019493879422098387,
+      "runs": [
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 4096,
+          "millis": 2010.539208073169
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 4096,
+          "millis": 2003.2340832985938
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 4096,
+          "millis": 2003.4005832858384
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 4096,
+          "millis": 2003.834083210677
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 4096,
+          "millis": 2004.370667040348
+        }
+      ]
+    },
+    {
+      "file": "f64kib.bin",
+      "bytes": 65536,
+      "chunks": 1024,
+      "send_loss": 0,
+      "reps": 5,
+      "successes": 5,
+      "success_rate": 1.0,
+      "statuses": {
+        "200": 5
+      },
+      "median_millis": 2010.6824161484838,
+      "p95_millis": 2016.0409999080002,
+      "min_millis": 2010.024375282228,
+      "max_millis": 2016.0409999080002,
+      "mb_per_sec": 0.031083974026947743,
+      "runs": [
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 65536,
+          "millis": 2016.0409999080002
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 65536,
+          "millis": 2010.6824161484838
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 65536,
+          "millis": 2010.024375282228
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 65536,
+          "millis": 2010.3942500427365
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 65536,
+          "millis": 2011.384291574359
+        }
+      ]
+    },
+    {
+      "file": "f256kib.bin",
+      "bytes": 262144,
+      "chunks": 4096,
+      "send_loss": 0,
+      "reps": 5,
+      "successes": 5,
+      "success_rate": 1.0,
+      "statuses": {
+        "200": 5
+      },
+      "median_millis": 2032.664833124727,
+      "p95_millis": 2040.9302092157304,
+      "min_millis": 2023.318416904658,
+      "max_millis": 2040.9302092157304,
+      "mb_per_sec": 0.12299125558033387,
+      "runs": [
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 262144,
+          "millis": 2032.664833124727
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 262144,
+          "millis": 2040.9302092157304
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 262144,
+          "millis": 2039.2168341204524
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 262144,
+          "millis": 2025.1582497730851
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 262144,
+          "millis": 2023.318416904658
+        }
+      ]
+    },
+    {
+      "file": "f1mib.bin",
+      "bytes": 1048576,
+      "chunks": 16384,
+      "send_loss": 0,
+      "reps": 5,
+      "successes": 5,
+      "success_rate": 1.0,
+      "statuses": {
+        "200": 5
+      },
+      "median_millis": 2097.144457977265,
+      "p95_millis": 2105.1111249253154,
+      "min_millis": 2094.409542158246,
+      "max_millis": 2105.1111249253154,
+      "mb_per_sec": 0.4768388730667217,
+      "runs": [
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 1048576,
+          "millis": 2105.1111249253154
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 1048576,
+          "millis": 2099.061124958098
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 1048576,
+          "millis": 2096.5338749811053
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 1048576,
+          "millis": 2097.144457977265
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 1048576,
+          "millis": 2094.409542158246
+        }
+      ]
+    },
+    {
+      "file": "f4mib.bin",
+      "bytes": 4194304,
+      "chunks": 65536,
+      "send_loss": 0,
+      "reps": 2,
+      "successes": 2,
+      "success_rate": 1.0,
+      "statuses": {
+        "200": 2
+      },
+      "median_millis": 2292.730749351904,
+      "p95_millis": 2299.4829579256475,
+      "min_millis": 2285.97854077816,
+      "max_millis": 2299.4829579256475,
+      "mb_per_sec": 1.744644459943976,
+      "runs": [
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 4194304,
+          "millis": 2285.97854077816
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 4194304,
+          "millis": 2299.4829579256475
+        }
+      ]
+    }
+  ]
+}

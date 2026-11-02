@@ -1,0 +1,59 @@
+{
+  "label": "loss0-aws",
+  "host": "http://file-transfer-gateway-34279764.us-west-2.elb.amazonaws.com",
+  "send_loss": 0,
+  "when": "2026-11-01T18:47:46Z",
+  "rows": [
+    {
+      "file": "f64kib.bin",
+      "bytes": 65536,
+      "chunks": 1024,
+      "send_loss": 0,
+      "reps": 5,
+      "successes": 4,
+      "success_rate": 0.8,
+      "statuses": {
+        "200": 4,
+        "504": 1
+      },
+      "median_millis": 8862.209375016391,
+      "p95_millis": 11310.36120839417,
+      "min_millis": 2666.432125028223,
+      "max_millis": 11310.36120839417,
+      "mb_per_sec": 0.007052417445269894,
+      "runs": [
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 65536,
+          "millis": 2666.432125028223
+        },
+        {
+          "ok": false,
+          "status": 504,
+          "bytes": 0,
+          "millis": 13368.399000260979,
+          "error": "{\"error\":\"the file server did not respond\"}"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 65536,
+          "millis": 11310.36120839417
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 65536,
+          "millis": 11168.99162484333
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 65536,
+          "millis": 6555.427125189453
+        }
+      ]
+    }
+  ]
+}

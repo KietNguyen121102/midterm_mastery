@@ -1,0 +1,75 @@
+{
+  "label": "loss10-local",
+  "host": "http://127.0.0.1:8082",
+  "send_loss": 10,
+  "when": "2026-11-01T18:21:11Z",
+  "rows": [
+    {
+      "file": "f64kib.bin",
+      "bytes": 65536,
+      "chunks": 1024,
+      "send_loss": 10,
+      "reps": 8,
+      "successes": 8,
+      "success_rate": 1.0,
+      "statuses": {
+        "200": 8
+      },
+      "median_millis": 10027.58629154414,
+      "p95_millis": 12026.558000128716,
+      "min_millis": 10023.057125043124,
+      "max_millis": 12026.558000128716,
+      "mb_per_sec": 0.006232805999655544,
+      "runs": [
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 65536,
+          "millis": 10028.946124948561
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 65536,
+          "millis": 12026.547125075012
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 65536,
+          "millis": 10026.875250041485
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 65536,
+          "millis": 10028.11454096809
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 65536,
+          "millis": 10023.057125043124
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 65536,
+          "millis": 10025.695416610688
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 65536,
+          "millis": 10027.058042120188
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 65536,
+          "millis": 12026.558000128716
+        }
+      ]
+    }
+  ]
+}

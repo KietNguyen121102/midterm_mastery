@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>File-transfer service — three experiments</title>
+<style>
+  :root { --ink:#1a202c; --muted:#4a5568; --line:#cbd5e0; --bg:#f7fafc; }
+  * { box-sizing: border-box; }
+  html, body { margin:0; height:100%; background:#0f172a; color:var(--ink); font:20px/1.4 "Avenir Next", "Segoe UI", sans-serif; }
+  .slide { display:none; height:100%; padding:48px 64px; background:var(--bg); overflow:auto; }
+  .slide.on { display:flex; flex-direction:column; }
+  h1 { font-size:40px; margin:0 0 12px; }
+  h2 { font-size:26px; margin:0 0 16px; }
+  p, li { color:var(--muted); }
+  .kicker { text-transform:uppercase; letter-spacing:.12em; font-size:13px; color:#2b6cb0; font-weight:700; margin-bottom:8px; }
+  .row { display:flex; gap:28px; align-items:flex-start; }
+  .row img { max-width:100%; background:#fff; border:1px solid var(--line); border-radius:8px; }
+  .grow { flex:1; }
+  table { border-collapse:collapse; width:100%; font-size:16px; background:#fff; }
+  th, td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  th { background:#edf2f7; }
+  .note { margin-top:auto; font-size:14px; color:#718096; border-top:1px solid var(--line); padding-top:12px; }
+  .bar { position:fixed; bottom:12px; right:20px; color:#94a3b8; font-size:13px; }
+  code { font-size:90%; background:#edf2f7; padding:1px 6px; border-radius:4px; }
+</style>
+</head>
+<body>
+<div class="deck">
+
+<section class="slide on">
+  <div class="kicker">CS6650 midterm · AWS us-west-2 · file-transfer-playservice</div>
+  <h1>Three experiments on a lossy UDP file service</h1>
+  <p>Client → ALB → gateway (HTTP, <code>MAX_INFLIGHT=4</code>) → NLB → backend (UDP, <code>WORKERS=8</code>) → S3. 64-byte chunks, 4 MiB cap.</p>
+  <table>
+    <tr><th></th><th>1. File size</th><th>2. Send loss</th><th>3. Load / scale</th></tr>
+    <tr><td>HW tool</td><td>HW4 sweep</td><td>HW4 sweep</td><td>HW5/6 Locust + watch</td></tr>
+    <tr><td>Fixed</td><td>SEND_LOSS=0, retries 5/5</td><td>64 KiB (1024 chunks)</td><td>64 KiB, 25 users, 8 min</td></tr>
+    <tr><td>Vary</td><td>4 KiB → 4 MiB</td><td>SEND_LOSS 0 then 10</td><td>concurrency; two scaler metrics</td></tr>
+  </table>
+  <p class="note">Gateway scales on <code>ALBRequestCountPerTarget=40</code>. Backend scales on CPU=40%. Min 2 / max 4 tasks each.</p>
+</section>
+
+<section class="slide">
+  <div class="kicker">Experiment 1 · file size on AWS</div>
+  <h2>On the NLB path, size kills success, not just latency</h2>
+  <div class="row">
+    <div class="grow"><img src="results/aws/figures/size.png" alt="AWS file size results"></div>
+    <div class="grow">
+      <ul>
+        <li>4 KiB (64 chunks): 4/5 ok, ~4 s</li>
+        <li>64 KiB (1024): 4/5 ok, ~9 s</li>
+        <li>256 KiB (4096): 1/5 ok</li>
+        <li>1 MiB and 4 MiB: <b>0/5 and 0/2</b></li>
+      </ul>
+      <p>Localhost all five sizes finished in 2.0–2.3 s. AWS blasts the same chunks through a UDP NLB. Tail-drops leave long missing ranges; RETY bursts then overflow the 32-deep worker queue.</p>
+    </div>
+  </div>
+  <p class="note">The 2 s quiet timeout is still the floor. Extra seconds are retry rounds, not send time.</p>
+</section>
+
+<section class="slide">
+  <div class="kicker">Experiment 2 · send loss</div>
+  <h2>AWS is already lossy. +10% send loss makes 64 KiB slower, not much rarer.</h2>
+  <div class="row">
+    <div class="grow"><img src="results/aws/figures/loss.png" alt="AWS send loss results"></div>
+    <div class="grow">
+      <ul>
+        <li>64 KiB @ 0%: 80% ok, median 8.9 s</li>
+        <li>64 KiB @ 10%: 75% ok, median 11.2 s</li>
+        <li>4 KiB @ 10%: <b>8/8 ok</b>, 4.3–6.4 s</li>
+      </ul>
+      <p>Locally, 10% still finished every 64 KiB file (10–12 s) and 20% collapsed to 1/8. On AWS the NLB already supplies enough loss that 1024-chunk files live near the 5-round budget. Small files still have slack.</p>
+    </div>
+  </div>
+  <p class="note">Backend logs: <code>Overloaded: dropped incoming datagram</code> plus consecutive missing-chunk ranges.</p>
+</section>
+
+<section class="slide">
+  <div class="kicker">Experiment 3 · Locust + two scalers</div>
+  <h2>Gateway scaled 2 → 4. Backend never moved.</h2>
+  <div class="row">
+    <div class="grow"><img src="results/aws/figures/load.png" alt="Locust vs task counts"></div>
+    <div class="grow">
+      <ul>
+        <li>25 users, 8 min, 64 KiB: 1764 req, <b>51% fail</b></li>
+        <li>789 × 503 busy, 105 × 504 timeout</li>
+        <li>Gateway desired 4 at 18:54, healthy 4 at 18:55</li>
+        <li>Backend stayed at 2. CPU avg 22–39% (target 40). One task hit 76% max; target tracking uses the average.</li>
+      </ul>
+      <p>ALB can scale on requests/target. NLB cannot, so the backend only watches CPU — and the average never crossed the line.</p>
+    </div>
+  </div>
+  <p class="note">Same Locust FastHttpUser pattern as HW6. Watch script from HW6, two services.</p>
+</section>
+
+<section class="slide">
+  <div class="kicker">What the service actually is</div>
+  <h2>Three limits, confirmed on AWS</h2>
+  <ol>
+    <li><b>Burst + 2 s completion.</b> Localhost hides it (everything is ~2 s). On AWS, 256 KiB+ transfers mostly 504 because a blast of 64-byte datagrams is dropped and five RETY rounds cannot catch up.</li>
+    <li><b>Retry turns into overload.</b> Missing ranges become RETY floods. The backend drops them once 32 jobs are queued. Extra <code>SEND_LOSS</code> mainly adds more 2 s rounds.</li>
+    <li><b>The two scalers do not agree.</b> The gateway feels request pile-up and scales. The backend, busy enough to 504 files, still averages under 40% CPU and stays at min=2.</li>
+  </ol>
+  <p class="note">Talk ~4:30. Arrow keys or space. Tear down: <code>scripts/destroy.sh --yes</code>.</p>
+</section>
+
+</div>
+<div class="bar" id="bar"></div>
+<script>
+const slides = [...document.querySelectorAll('.slide')];
+let i = 0;
+function show(n){
+  i = (n + slides.length) % slides.length;
+  slides.forEach((s, k) => s.classList.toggle('on', k === i));
+  document.getElementById('bar').textContent = (i+1) + ' / ' + slides.length;
+}
+document.addEventListener('keydown', e => {
+  if (['ArrowRight',' ','PageDown'].includes(e.key)) show(i+1);
+  if (['ArrowLeft','PageUp'].includes(e.key)) show(i-1);
+});
+show(0);
+</script>
+</body>
+</html>

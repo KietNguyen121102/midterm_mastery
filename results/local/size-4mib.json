@@ -1,0 +1,39 @@
+{
+  "label": "size-4mib-local",
+  "host": "http://127.0.0.1:8082",
+  "send_loss": 0,
+  "when": "2026-11-01T18:19:18Z",
+  "rows": [
+    {
+      "file": "f4mib.bin",
+      "bytes": 4194304,
+      "chunks": 65536,
+      "send_loss": 0,
+      "reps": 2,
+      "successes": 2,
+      "success_rate": 1.0,
+      "statuses": {
+        "200": 2
+      },
+      "median_millis": 2292.730749351904,
+      "p95_millis": 2299.4829579256475,
+      "min_millis": 2285.97854077816,
+      "max_millis": 2299.4829579256475,
+      "mb_per_sec": 1.744644459943976,
+      "runs": [
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 4194304,
+          "millis": 2285.97854077816
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 4194304,
+          "millis": 2299.4829579256475
+        }
+      ]
+    }
+  ]
+}

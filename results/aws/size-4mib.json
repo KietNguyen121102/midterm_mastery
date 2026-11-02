@@ -1,0 +1,41 @@
+{
+  "label": "size-4mib-aws",
+  "host": "http://file-transfer-gateway-34279764.us-west-2.elb.amazonaws.com",
+  "send_loss": 0,
+  "when": "2026-11-01T18:48:55Z",
+  "rows": [
+    {
+      "file": "f4mib.bin",
+      "bytes": 4194304,
+      "chunks": 65536,
+      "send_loss": 0,
+      "reps": 2,
+      "successes": 0,
+      "success_rate": 0.0,
+      "statuses": {
+        "504": 2
+      },
+      "median_millis": null,
+      "p95_millis": null,
+      "min_millis": null,
+      "max_millis": null,
+      "mb_per_sec": null,
+      "runs": [
+        {
+          "ok": false,
+          "status": 504,
+          "bytes": 0,
+          "millis": 35419.132582843304,
+          "error": "{\"error\":\"the file server did not respond\"}"
+        },
+        {
+          "ok": false,
+          "status": 504,
+          "bytes": 0,
+          "millis": 32526.005040854216,
+          "error": "{\"error\":\"the file server did not respond\"}"
+        }
+      ]
+    }
+  ]
+}

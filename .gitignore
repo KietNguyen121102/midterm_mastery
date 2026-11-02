@@ -46,3 +46,9 @@ e2e-results/
 
 # Built programs
 bin/
+
+# Experiment inputs and local scratch
+experiments/corpus/
+experiments/__pycache__/
+*.bin
+!results/**/*.png

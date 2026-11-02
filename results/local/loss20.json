@@ -1,0 +1,83 @@
+{
+  "label": "loss20-local",
+  "host": "http://127.0.0.1:8082",
+  "send_loss": 20,
+  "when": "2026-11-01T18:23:06Z",
+  "rows": [
+    {
+      "file": "f64kib.bin",
+      "bytes": 65536,
+      "chunks": 1024,
+      "send_loss": 20,
+      "reps": 8,
+      "successes": 1,
+      "success_rate": 0.125,
+      "statuses": {
+        "504": 7,
+        "200": 1
+      },
+      "median_millis": 12035.891834180802,
+      "p95_millis": 12035.891834180802,
+      "min_millis": 12035.891834180802,
+      "max_millis": 12035.891834180802,
+      "mb_per_sec": 0.00519280173509917,
+      "runs": [
+        {
+          "ok": false,
+          "status": 504,
+          "bytes": 0,
+          "millis": 12039.655917324126,
+          "error": "{\"error\":\"the file server did not respond\"}"
+        },
+        {
+          "ok": false,
+          "status": 504,
+          "bytes": 0,
+          "millis": 12037.46141679585,
+          "error": "{\"error\":\"the file server did not respond\"}"
+        },
+        {
+          "ok": false,
+          "status": 504,
+          "bytes": 0,
+          "millis": 12035.31637461856,
+          "error": "{\"error\":\"the file server did not respond\"}"
+        },
+        {
+          "ok": false,
+          "status": 504,
+          "bytes": 0,
+          "millis": 12033.609916921705,
+          "error": "{\"error\":\"the file server did not respond\"}"
+        },
+        {
+          "ok": false,
+          "status": 504,
+          "bytes": 0,
+          "millis": 12036.496582906693,
+          "error": "{\"error\":\"the file server did not respond\"}"
+        },
+        {
+          "ok": false,
+          "status": 504,
+          "bytes": 0,
+          "millis": 12037.625332828611,
+          "error": "{\"error\":\"the file server did not respond\"}"
+        },
+        {
+          "ok": false,
+          "status": 504,
+          "bytes": 0,
+          "millis": 12038.237625267357,
+          "error": "{\"error\":\"the file server did not respond\"}"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 65536,
+          "millis": 12035.891834180802
+        }
+      ]
+    }
+  ]
+}

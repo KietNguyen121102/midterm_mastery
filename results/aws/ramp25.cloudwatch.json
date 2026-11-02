@@ -1,0 +1,10 @@
+{
+  "window": {"start": "2026-11-01T18:48:00Z", "end": "2026-11-01T19:00:00Z"},
+  "gateway_tasks": "2 -> 4 at 18:54:01Z (desired), running 4 at 18:55:07Z",
+  "backend_tasks": "stayed 2",
+  "gateway_cpu_avg_pct": [1.61, 3.30, 4.82, 4.91, 5.34, 5.10, 2.25, 4.05],
+  "backend_cpu_avg_pct": [32.86, 21.98, 26.16, 26.34, 29.22, 24.77, 22.55, 39.04],
+  "backend_cpu_max_pct": [76.35, 54.31, 48.91, 36.13, 39.20, 46.68, 28.08, 57.32],
+  "alb_request_count_per_min": [2, 163, 210, 213, 212, 217, 214, 251, 181],
+  "notes": "Gateway scaled on ALBRequestCountPerTarget=40. Backend CPU target=40; average stayed at or below 39 so it did not scale."
+}

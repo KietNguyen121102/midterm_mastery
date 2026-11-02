@@ -1,0 +1,251 @@
+{
+  "label": "size-aws",
+  "host": "http://file-transfer-gateway-34279764.us-west-2.elb.amazonaws.com",
+  "send_loss": 0,
+  "when": "2026-11-01T18:47:46Z",
+  "rows": [
+    {
+      "file": "f4kib.bin",
+      "bytes": 4096,
+      "chunks": 64,
+      "send_loss": 0,
+      "reps": 5,
+      "successes": 4,
+      "success_rate": 0.8,
+      "statuses": {
+        "504": 1,
+        "200": 4
+      },
+      "median_millis": 4187.362207798287,
+      "p95_millis": 4209.186791907996,
+      "min_millis": 2192.0994999818504,
+      "max_millis": 4209.186791907996,
+      "mb_per_sec": 0.0009328665174283798,
+      "runs": [
+        {
+          "ok": false,
+          "status": 504,
+          "bytes": 0,
+          "millis": 10163.877499755472,
+          "error": "{\"error\":\"the file server did not respond\"}"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 4096,
+          "millis": 4198.2805407606065
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 4096,
+          "millis": 4209.186791907996
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 4096,
+          "millis": 2192.0994999818504
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 4096,
+          "millis": 4176.443874835968
+        }
+      ]
+    },
+    {
+      "file": "f64kib.bin",
+      "bytes": 65536,
+      "chunks": 1024,
+      "send_loss": 0,
+      "reps": 5,
+      "successes": 4,
+      "success_rate": 0.8,
+      "statuses": {
+        "200": 4,
+        "504": 1
+      },
+      "median_millis": 8862.209375016391,
+      "p95_millis": 11310.36120839417,
+      "min_millis": 2666.432125028223,
+      "max_millis": 11310.36120839417,
+      "mb_per_sec": 0.007052417445269894,
+      "runs": [
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 65536,
+          "millis": 2666.432125028223
+        },
+        {
+          "ok": false,
+          "status": 504,
+          "bytes": 0,
+          "millis": 13368.399000260979,
+          "error": "{\"error\":\"the file server did not respond\"}"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 65536,
+          "millis": 11310.36120839417
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 65536,
+          "millis": 11168.99162484333
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 65536,
+          "millis": 6555.427125189453
+        }
+      ]
+    },
+    {
+      "file": "f256kib.bin",
+      "bytes": 262144,
+      "chunks": 4096,
+      "send_loss": 0,
+      "reps": 5,
+      "successes": 1,
+      "success_rate": 0.2,
+      "statuses": {
+        "504": 4,
+        "200": 1
+      },
+      "median_millis": 17082.65016693622,
+      "p95_millis": 17082.65016693622,
+      "min_millis": 17082.65016693622,
+      "max_millis": 17082.65016693622,
+      "mb_per_sec": 0.014634731587718138,
+      "runs": [
+        {
+          "ok": false,
+          "status": 504,
+          "bytes": 0,
+          "millis": 17003.813750110567,
+          "error": "{\"error\":\"the file server did not respond\"}"
+        },
+        {
+          "ok": false,
+          "status": 504,
+          "bytes": 0,
+          "millis": 14844.824791885912,
+          "error": "{\"error\":\"the file server did not respond\"}"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "bytes": 262144,
+          "millis": 17082.65016693622
+        },
+        {
+          "ok": false,
+          "status": 504,
+          "bytes": 0,
+          "millis": 15054.077833890915,
+          "error": "{\"error\":\"the file server did not respond\"}"
+        },
+        {
+          "ok": false,
+          "status": 504,
+          "bytes": 0,
+          "millis": 15138.093084096909,
+          "error": "{\"error\":\"the file server did not respond\"}"
+        }
+      ]
+    },
+    {
+      "file": "f1mib.bin",
+      "bytes": 1048576,
+      "chunks": 16384,
+      "send_loss": 0,
+      "reps": 5,
+      "successes": 0,
+      "success_rate": 0.0,
+      "statuses": {
+        "504": 5
+      },
+      "median_millis": null,
+      "p95_millis": null,
+      "min_millis": null,
+      "max_millis": null,
+      "mb_per_sec": null,
+      "runs": [
+        {
+          "ok": false,
+          "status": 504,
+          "bytes": 0,
+          "millis": 19144.58016725257,
+          "error": "{\"error\":\"the file server did not respond\"}"
+        },
+        {
+          "ok": false,
+          "status": 504,
+          "bytes": 0,
+          "millis": 18704.68729082495,
+          "error": "{\"error\":\"the file server did not respond\"}"
+        },
+        {
+          "ok": false,
+          "status": 504,
+          "bytes": 0,
+          "millis": 18801.771208178252,
+          "error": "{\"error\":\"the file server did not respond\"}"
+        },
+        {
+          "ok": false,
+          "status": 504,
+          "bytes": 0,
+          "millis": 19336.325124837458,
+          "error": "{\"error\":\"the file server did not respond\"}"
+        },
+        {
+          "ok": false,
+          "status": 504,
+          "bytes": 0,
+          "millis": 20206.537334248424,
+          "error": "{\"error\":\"the file server did not respond\"}"
+        }
+      ]
+    },
+    {
+      "file": "f4mib.bin",
+      "bytes": 4194304,
+      "chunks": 65536,
+      "send_loss": 0,
+      "reps": 2,
+      "successes": 0,
+      "success_rate": 0.0,
+      "statuses": {
+        "504": 2
+      },
+      "median_millis": null,
+      "p95_millis": null,
+      "min_millis": null,
+      "max_millis": null,
+      "mb_per_sec": null,
+      "runs": [
+        {
+          "ok": false,
+          "status": 504,
+          "bytes": 0,
+          "millis": 35419.132582843304,
+          "error": "{\"error\":\"the file server did not respond\"}"
+        },
+        {
+          "ok": false,
+          "status": 504,
+          "bytes": 0,
+          "millis": 32526.005040854216,
+          "error": "{\"error\":\"the file server did not respond\"}"
+        }
+      ]
+    }
+  ]
+}
